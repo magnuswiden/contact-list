@@ -1,18 +1,39 @@
 var express = require( 'express' );
 var app = express();
+var engines = require( 'consolidate' );
+var sassMiddleware = require( 'node-sass-middleware' );
+var path = require( 'path' );
 var User = require( './db' ).User;
 
+app.engine( 'hbs', engines.handlebars );
+app.set( 'views', './views' );
+app.set( 'view engine', 'hbs' );
+
+app.use( sassMiddleware( {
+    src: __dirname + '/src/sass',
+    dest: path.join( __dirname, '/public/css' ),
+    debug: false,
+    outputStyle: 'compressed'
+    //prefix:  '/css'
+} ) );
+// Note: you must place sass-middleware *before* `express.static` or else it will
+// not work.
+app.use( '/public', express.static( path.join( __dirname, 'public' ) ) );
+app.use( '/profilepics', express.static( 'public/images' ) );
+
+/* SERVER ROUTES */
 app.get( '/', function ( req, res ) {
-    res.send( 'Yeppa Greppa' );
+    res.render( 'index', {} );
 } );
 
 app.get( '/users', function ( req, res ) {
     var buffer = '<h1>All my Users</h1>';
     User.find( {}, function ( err, users ) {
-        users.forEach( function ( user ) {
-            buffer += '<a href="/users/' + user.username + '">' + user.name.full + '</a><br>';
-        } );
-        res.send( buffer );
+        // users.forEach( function ( user ) {
+        //     buffer += '<a href="/users/' + user.username + '">' + user.name.full + '</a><br>';
+        // } );
+        //res.send( buffer );
+        res.render( 'users', { users: users } )
     } );
 } );
 
