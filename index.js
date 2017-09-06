@@ -10,11 +10,11 @@ app.set( 'views', './views' );
 app.set( 'view engine', 'hbs' );
 
 app.use( sassMiddleware( {
-    src: __dirname + '/src/sass',
-    dest: path.join( __dirname, '/public/css' ),
-    debug: false,
-    outputStyle: 'compressed'
-    //prefix:  '/css'
+    src: __dirname + '/src/sass/',
+    dest: path.join( __dirname, '/public/' ),
+    debug: true,
+    outputStyle: 'compressed',
+    prefix: '/css'
 } ) );
 // Note: you must place sass-middleware *before* `express.static` or else it will
 // not work.
@@ -27,7 +27,6 @@ app.get( '/', function ( req, res ) {
 } );
 
 app.get( '/users', function ( req, res ) {
-    var buffer = '<h1>All my Users</h1>';
     User.find( {}, function ( err, users ) {
         // users.forEach( function ( user ) {
         //     buffer += '<a href="/users/' + user.username + '">' + user.name.full + '</a><br>';
@@ -39,10 +38,11 @@ app.get( '/users', function ( req, res ) {
 
 app.get( '/users/:username', function ( req, res ) {
     var username = req.params.username;
-    var buffer = "";
     User.findOne( { username: username }, function ( err, user ) {
-        buffer += '<h1>' + user.name.full + '</h1>';
-        res.send( buffer );
+        //buffer += '<h1>' + user.name.full + '</h1>';
+        //res.send( user );
+        console.log( typeof user.name.full, typeof user.email );
+        res.render( 'user-details', { user: user } );
     } );
 } )
 

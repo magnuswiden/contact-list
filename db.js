@@ -11,6 +11,9 @@ db.once( 'open', function () {
 var userSchema = mongoose.Schema( {
     username: String,
     gender: String,
+    email: String,
+    cell: String,
+    salt: String,
     name: {
         title: String,
         first: String,
@@ -22,6 +25,9 @@ var userSchema = mongoose.Schema( {
         city: String,
         state: String,
         zip: Number
+    },
+    picture: {
+        large: String
     }
 } )
 

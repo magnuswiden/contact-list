@@ -1,6 +1,221 @@
-html {
-    background: #fefefe;
-    color: #222;
-    font-size: 18px;
-    font-family: Courier New, Courier, monospace;
+
+// Variables
+// @import "variables";
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+// @import "buttons";
+
+body{
+    margin:60px 0 0 0;
+    padding:0 0 0 0;
+    background-color: white;
+    border:0;
+    font-family: "arial", sans-serif;
+}
+
+*{
+    -webkit-font-smoothing:antialiased;	
+}
+
+.top{
+    width: 100%;
+    height:50px;
+    position:fixed;
+    top:0;
+    background-color:#f9c82a;
+    display: flex;
+    align-items: center;
+    z-index: 90000;
+    .logo {
+        display: block;
+        width: 144px;
+        height: 27px;
+        margin: 0 auto;
+        //transform: translateX(-20px);
+    }
+    .middle {
+        flex-grow: 1;
+    }
+    .back {
+        text-indent: -999px;
+        background-image: url('http://tools.ddb.se/ddb/telefonlistan/android/images/back_btn.png');
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+        background-color: transparent;
+        width: 32px;
+        height: 32px;
+        display: block;
+        margin: 0 0 0 10px;
+        padding: 0;
+    }
+    .new {
+        margin-right: 10px;
+    }
+}
+
+ul.people-list {
+    margin:0;
+    padding:0;
+    li{
+        margin:0;
+        padding: 4px 0 0 0;
+        border:none;			
+        border-top:1px solid #f5f5f5;
+        display: block;
+        &:first-of-type {
+            border-top: none;
+        }
+    }
+    
+    a{
+        background-color: white;
+        display: block;
+        text-decoration: none;
+        color:black;
+        font-size:16px;
+        padding:0 10px;
+    }
+    a h1 {
+        font-weight: normal;
+        font-size: 16px;
+        margin:0;
+        padding:8px 0 3px 0;
+        display: block;
+    }
+    
+    a h2 {
+        font-weight: normal;
+        font-size: 12px;
+        margin:0;
+        padding:0 0 8px 0;
+        display: block;
+        color:#666;
+    }
+    
+    a img {
+        margin:0;
+        padding:0;
+        display: inline;
+    }
+}
+
+
+
+h3{
+    font-weight: normal;
+    display: block;
+    font-size: 12px;
+    color:#666;
+    text-align: center;
+    line-height: 50px;
+}
+
+.profile-wrapper {
+    ul.action{
+        margin:10px 0;
+        padding:0;
+        text-align: center;
+    }
+
+    ul.action li{
+        margin:0;
+        padding:0 10px;
+        border:none;
+        display: inline-block;
+    }
+
+    ul.action a{
+        display: block;
+        text-decoration: none;
+        color:black;
+        font-size:16px;
+        padding:0;
+        margin:0;
+        width:60px;
+        height:60px;
+        background-size: 60px 60px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    ul.action a.call{
+        background-image: url('http://tools.ddb.se/ddb/telefonlistan/android/images/phone_120.png');
+    }
+
+    ul.action a.sms{
+        background-image: url('http://tools.ddb.se/ddb/telefonlistan/android/images/sms_120.png');
+    }
+
+    ul.action a.mail{
+        background-image: url('http://tools.ddb.se/ddb/telefonlistan/android/images/mail_120.png');
+    }
+
+
+    ul.info{
+        margin:30px 0 0 0;
+        padding:0;
+        border-bottom:1px solid #ccc;
+    }
+
+    ul.info li{
+        margin:0;
+        padding:0;
+        border:none;			
+        border-top:1px solid #ccc;
+        display: block;
+
+    }
+
+    ul.info a{
+        background-color: #f1f1f1;
+        display: block;
+        text-decoration: none;
+        color:black;
+        font-size:16px;
+        padding:0 10px;
+    }
+
+        ul.info a span.left{
+            color:#666;
+            font-size: 14px;
+            line-height: 50px;
+            font-weight: bold;
+        }
+
+        ul.info a span.right{
+            color:#333;
+            font-size: 14px;
+            float: right;
+            line-height: 50px;
+        }
+
+    
+        div.image{
+            width:200px;
+            height:200px;
+            border-radius: 150px;
+            margin: 80px auto 18px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            display: block;
+        }
+
+        h1 {
+            font-weight: normal;
+            font-size: 20px;
+            margin:0;
+            padding:8px 0 3px 0;
+            display: block;
+            text-align: center;
+        }
+
+        h2 {
+            font-weight: normal;
+            font-size: 14px;
+            margin:0;
+            padding:0 0 8px 0;
+            display: block;
+            text-align: center;
+            color:#666;
+        }
 }
