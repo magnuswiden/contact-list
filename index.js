@@ -3,6 +3,7 @@ var app = express();
 var engines = require( 'consolidate' );
 var sassMiddleware = require( 'node-sass-middleware' );
 var path = require( 'path' );
+var bodyParser = require( 'body-parser' );
 var User = require( './db' ).User;
 
 app.engine( 'hbs', engines.handlebars );
