@@ -12,9 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "bootstrap-sass": "^3.3.7",
     "consolidate": "^0.14.5",
     "express": "^4.15.4",
     "handlebars": "^4.0.10",
+    "method-override": "^2.3.9",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.10",
     "node-sass-middleware": "^0.11.0"
