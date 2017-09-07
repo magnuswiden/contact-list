@@ -4,32 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Users</title>
+    <title>Create New User</title>
     <link rel="stylesheet" href="/public/app.css">
 </head>
 <body>
     <div class="top">
-        <span style="width: 32px; margin-left: 10px">&nbsp;</span>
+        <a href="/users" class="back">Tillbaka</a>
         <div class="middle">
             <span class="logo">
                 <svg id="Layer_1" data-name="Layer 1" viewBox="0 0 252.55 36.41" data-reactid=".0.0.0.0.2.0.0"><title data-reactid=".0.0.0.0.2.0.0.0">Logo_Ehrenstråhle_ Vit</title><path class="cls-1" d="M56,25.13a7.47,7.47,0,0,0-2.33-4.83c-2.72-2.37-5.86-2.54-9.12-1.41a14.24,14.24,0,0,0-2.46,1.45V10.75H35.44V45.46h6.71V44.75c0-5.26,0-10.52,0-15.78a8.1,8.1,0,0,1,.48-2.72,3.11,3.11,0,0,1,3.14-2A3,3,0,0,1,48.92,26a7.82,7.82,0,0,1,.56,2.81c0.05,5.33,0,10.67,0,16v0.69h6.75v-0.7c0-5.5,0-11,0-16.51A23.59,23.59,0,0,0,56,25.13Z" transform="translate(-15.45 -10.14)" data-reactid=".0.0.0.0.2.0.0.1"></path><path class="cls-1" d="M226.52,25.6a7.89,7.89,0,0,0-2.37-5c-2.08-1.91-4.62-2.22-7.27-1.9a6.72,6.72,0,0,0-4.25,2.16V10.57h-6.76V45.81h6.76V45.12q0-7.75,0-15.5c0-.48,0-1,0-1.45a3.72,3.72,0,0,1,5.74-3,3.47,3.47,0,0,1,1.51,3.09c0,5.63,0,11.27,0,16.9,0,0.22,0,.44,0,0.68h6.79V45.11c0-5.43,0-10.86,0-16.28A25.58,25.58,0,0,0,226.52,25.6Z" transform="translate(-15.45 -10.14)" data-reactid=".0.0.0.0.2.0.0.2"></path><path class="cls-1" d="M267.7,28.65a11.89,11.89,0,0,0-5-7.93A13.73,13.73,0,0,0,254,18.48a12.65,12.65,0,0,0-11.57,8.73,16.42,16.42,0,0,0-.63,8.05A12.56,12.56,0,0,0,246,43.12a13.42,13.42,0,0,0,7.76,3.09,13.74,13.74,0,0,0,9.88-2.56,12,12,0,0,0,3.5-4.37l-5-3-0.3.4a7.56,7.56,0,0,1-7.55,3.56,6,6,0,0,1-5-3.16,5.55,5.55,0,0,1-.66-2.53h19.21A21.66,21.66,0,0,0,267.7,28.65Zm-18.83.81a5.62,5.62,0,0,1,5.77-5.34c3.44,0,6.09,2.16,6.3,5.34H248.87Z" transform="translate(-15.45 -10.14)" data-reactid=".0.0.0.0.2.0.0.3"></path><path class="cls-1" d="M96.06,20.94a13.35,13.35,0,0,0-9.53-2.8,12.29,12.29,0,0,0-10.72,6.78,15.45,15.45,0,0,0-1.52,9.72,12.66,12.66,0,0,0,4.24,8.14,13.48,13.48,0,0,0,8.1,3.12,13.57,13.57,0,0,0,9.72-2.73,12.15,12.15,0,0,0,3.32-4.23l-5-3-0.43.59a7.69,7.69,0,0,1-10,2.61,5.45,5.45,0,0,1-3-4.93h19.13c0-.26.08-0.46,0.08-0.66a21.83,21.83,0,0,0-.33-5.62A12,12,0,0,0,96.06,20.94ZM81.44,29.12c-0.26-2.46,2.41-5.12,5.31-5.31,4.47-.3,6.55,2.73,6.73,5.31h-12Z" transform="translate(-15.45 -10.14)" data-reactid=".0.0.0.0.2.0.0.4"></path><path class="cls-1" d="M22.48,30.89h8.63V24.43H22.47V17.17h8.9v-6.5H15.45V45.46H31.51V38.94h-9V30.89Z" transform="translate(-15.45 -10.14)" data-reactid=".0.0.0.0.2.0.0.5"></path><path class="cls-1" d="M201.22,25.36a7.51,7.51,0,0,0-5.47-6.16,5.24,5.24,0,0,0,1.46-3.73c0-3.14-2.25-5.31-5.56-5.33a5.22,5.22,0,0,0-5.44,5.35,5.19,5.19,0,0,0,1.35,3.6,7.19,7.19,0,0,0-4.2,2.93,8.82,8.82,0,0,0-1.5,5h6.25c0-.12,0-0.19,0-0.27a2.67,2.67,0,0,1,1.9-2.62,3.61,3.61,0,0,1,3.86.7c1.18,1.21,1,2.79,1,4.4a10,10,0,0,0-4.54-1.09,9.6,9.6,0,0,0-7.09,2.63c-3.92,3.81-3.57,12.9,4.05,15a9,9,0,0,0,7.16-.64c0.47-.27.91-0.6,1.43-0.95V45.8h5.6c0-.13,0-0.23,0-0.32,0-5.48,0-11,0-16.45A20.23,20.23,0,0,0,201.22,25.36Zm-9.49-12.2A2.15,2.15,0,0,1,194,15.45a2.24,2.24,0,1,1-4.47-.06A2.12,2.12,0,0,1,191.74,13.16Zm-0.55,27.68a3.85,3.85,0,1,1,3.86-3.9A3.76,3.76,0,0,1,191.19,40.85Z" transform="translate(-15.45 -10.14)" data-reactid=".0.0.0.0.2.0.0.6"></path><path class="cls-1" d="M124.75,25.62c-0.46-4.18-2.7-6.67-6.72-7.25-2.62-.38-5.1,0-7.08,2a0.45,0.45,0,0,1-.19,0V18.58h-6.67V45.5h6.42l0.27,0V44.74c0-5.32,0-10.63,0-15.95a7.38,7.38,0,0,1,.48-2.55,3.13,3.13,0,0,1,3.15-2A3,3,0,0,1,117.58,26a8.53,8.53,0,0,1,.55,2.93c0.05,5.3,0,10.59,0,15.89v0.63h6.72c0-.15,0-0.26,0-0.37q0-8.67,0-17.35A19.81,19.81,0,0,0,124.75,25.62Z" transform="translate(-15.45 -10.14)" data-reactid=".0.0.0.0.2.0.0.7"></path><path class="cls-1" d="M143.9,30.86c-1.65-.7-3.42-1.14-5.13-1.71a12.59,12.59,0,0,1-2.34-.88,2.22,2.22,0,0,1-.62-3.22c0.94-1.3,4.13-1.39,4.91.53a15.84,15.84,0,0,1,.5,1.77h6.11c0-.48,0-0.89-0.09-1.29a7.18,7.18,0,0,0-5.31-6.67,12.35,12.35,0,0,0-7.32,0A7.73,7.73,0,0,0,129,26c-0.3,3.78,1.12,6.63,4.26,8.08,1.56,0.72,3.27,1.11,4.9,1.68a10.16,10.16,0,0,1,2.2.92,2.29,2.29,0,0,1-.16,3.85,4.08,4.08,0,0,1-3.66.24,2.27,2.27,0,0,1-1.1-1,15.26,15.26,0,0,1-.72-2.28h-6.33c0,0.68.06,1.32,0.15,2a7.25,7.25,0,0,0,4.53,6.17,13,13,0,0,0,8.28.48A8.2,8.2,0,0,0,147,42a9.21,9.21,0,0,0,.7-5.94A6.29,6.29,0,0,0,143.9,30.86Z" transform="translate(-15.45 -10.14)" data-reactid=".0.0.0.0.2.0.0.8"></path><path class="cls-1" d="M159.3,38.35a5,5,0,0,1-.11-1q0-6.27,0-12.54a1.68,1.68,0,0,1,.05-0.26h4V18.87h-4.1V14.7h-6.76v4.2h-2.48v5.68h2.51V25.3c0,4.48,0,9,0,13.43a15.74,15.74,0,0,0,.13,2.06,5.44,5.44,0,0,0,4.42,5,17.8,17.8,0,0,0,3.55.26,26,26,0,0,0,2.75-.27V40c-0.81,0-1.58,0-2.33-.13A1.76,1.76,0,0,1,159.3,38.35Z" transform="translate(-15.45 -10.14)" data-reactid=".0.0.0.0.2.0.0.9"></path><path class="cls-1" d="M231,45.82h6.66V10.57H231V45.82Z" transform="translate(-15.45 -10.14)" data-reactid=".0.0.0.0.2.0.0.a"></path><path class="cls-1" d="M173.94,21V18.91h-6.68V45.82H174V45.11q0-6.94,0-13.87c0-.76,0-1.53,0-2.29a2.79,2.79,0,0,1,2.92-3c0.74-.06,1.48-0.07,2.25-0.11v-7A6,6,0,0,0,173.94,21Z" transform="translate(-15.45 -10.14)" data-reactid=".0.0.0.0.2.0.0.b"></path><path class="cls-1" d="M66.95,20.74V18.59H60.26V45.47H67V44.77q0-7.58,0-15.16a12.4,12.4,0,0,1,.1-1.5,2.69,2.69,0,0,1,2.69-2.55c0.8-.06,1.59-0.08,2.42-0.12v-7A6,6,0,0,0,66.95,20.74Z" transform="translate(-15.45 -10.14)" data-reactid=".0.0.0.0.2.0.0.c"></path></svg>
             </span>
         </div>
-        <a class="new button round" href="/users/create" >
-            <span class="glyphicon glyphicon-plus"></span>
-        </a>
-        
     </div>
-    <ul class="people-list">
-        {{#each users as |user|}}
-        <li>
-            <a href="/users/{{user.username}}">{{user.name.full}}
-            <h2>{{user.name.title}}</h2>
-            </a>
-            
-        </li>
-        {{/each}}
-    </ul>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel">
+                    <div class="panel-body">
+
+
+                    <form class="form-horizontal" method="POST" action="/users/create">
+                        
+                        <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Firstname</label>
+                            <div class="col-md-6">
+                            <input class="form-control" type="text" name="first" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Lastname</label>
+                            <div class="col-md-6">
+                            <input class="form-control" type="text" name="last" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Title</label>
+                            <div class="col-md-6">
+                            <input class="form-control" type="text" name="title" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Email</label>
+                            <div class="col-md-6">
+                                <input class="form-control" type="email" name="email" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Phone</label>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" name="cell" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Short</label>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" name="salt" value="">
+                            </div>
+                        </div>
+
+                        
+                        
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button class="btn btn-primary">CREATE</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>

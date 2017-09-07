@@ -22,9 +22,31 @@ router.get( '/', function ( req, res ) {
 
 // GET ALL USERS AND DISPLAY THEM I A LIST VIEW
 router.get( '/users', function ( req, res ) {
-    User.find( {}, function ( err, users ) {
+    User.find( {} ).sort( { 'name.first': 1 } ).exec( function ( err, users ) {
         res.render( 'users', { users: users } )
     } );
+
+} );
+
+router.get( '/users/create', function ( req, res ) {
+    res.render( 'user-create' );
+} );
+
+router.post( '/users/create', function ( req, res ) {
+    var updateObject = {
+        email: req.body.email,
+        cell: req.body.cell,
+        salt: req.body.salt,
+        name: {
+            first: req.body.first,
+            last: req.body.last,
+            full: _.startCase( req.body.first + " " + req.body.last ),
+            title: req.body.title
+        }
+    }
+    var user = new User( updateObject );
+    user.save();
+    res.redirect( '/users' );
 } );
 
 // GET SPECIFIC USER AND DISPLAY DETAILS PAGE
