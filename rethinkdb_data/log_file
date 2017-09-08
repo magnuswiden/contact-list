@@ -1,0 +1,21 @@
+2017-09-08T11:43:50.108771000 0.216846s notice: Recursively removing directory /Users/magnuswiden/Code/ContactsList/rethinkdb_data/tmp
+2017-09-08T11:43:50.126331000 0.234409s notice: Initializing directory /Users/magnuswiden/Code/ContactsList/rethinkdb_data
+2017-09-08T11:43:50.126428000 0.234502s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/magnuswiden/Code/ContactsList/rethinkdb_data' did not already exist or is empty.)
+2017-09-08T11:43:50.126448000 0.234522s notice: Running rethinkdb 2.3.6 (CLANG 8.1.0 (clang-802.0.42))...
+2017-09-08T11:43:50.131704000 0.239779s notice: Running on Darwin 16.7.0 x86_64
+2017-09-08T11:43:50.131760000 0.239834s notice: Loading data from directory /Users/magnuswiden/Code/ContactsList/rethinkdb_data
+2017-09-08T11:43:50.300697000 0.408772s info: Automatically using cache size of 1668 MB
+2017-09-08T11:43:50.301260000 0.409335s notice: Listening for intracluster connections on port 29015
+2017-09-08T11:43:50.302406000 0.410480s notice: Listening for client driver connections on port 28015
+2017-09-08T11:43:50.302508000 0.410582s notice: Listening for administrative HTTP connections on port 8080
+2017-09-08T11:43:50.302510000 0.410584s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-09-08T11:43:50.302513000 0.410587s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-09-08T11:43:50.302514000 0.410588s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-09-08T11:43:50.302517000 0.410590s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-09-08T11:43:50.302520000 0.410593s notice: Server ready, "The_brewery_5_local_y33" fc906662-fa5c-4e4c-a366-425884a66c44
+2017-09-08T11:47:19.209573000 209.326733s info: Table ca15b71f-21b0-4c09-9c43-8d3859752307: Starting a new Raft election for term 1.
+2017-09-08T11:47:19.209866000 209.327026s info: Table ca15b71f-21b0-4c09-9c43-8d3859752307: Added replica on this server.
+2017-09-08T11:47:19.234594000 209.351754s info: Table ca15b71f-21b0-4c09-9c43-8d3859752307: This server is Raft leader for term 1. Latest log index is 0.
+2017-09-08T11:49:37.252712000 347.375944s info: Table 6114aa16-bbd1-4a25-bfd0-6fdb896b8abc: Starting a new Raft election for term 1.
+2017-09-08T11:49:37.252857000 347.376088s info: Table 6114aa16-bbd1-4a25-bfd0-6fdb896b8abc: Added replica on this server.
+2017-09-08T11:49:37.257581000 347.380812s info: Table 6114aa16-bbd1-4a25-bfd0-6fdb896b8abc: This server is Raft leader for term 1. Latest log index is 0.

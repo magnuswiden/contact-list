@@ -20,7 +20,8 @@
     "method-override": "^2.3.9",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.10",
-    "node-sass-middleware": "^0.11.0"
+    "node-sass-middleware": "^0.11.0",
+    "rethinkdb": "^2.3.3"
   },
   "devDependencies": {
     "nodemon": "^1.12.0"

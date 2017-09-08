@@ -1,6 +1,13 @@
 var express = require( 'express' );
 var router = express();
-var User = require( './db' ).User;
+var r = require( 'rethinkdb' );
+var connection = null;
+r.connect( { host: 'localhost', port: 28015 }, function ( err, conn ) {
+    if ( err ) throw err;
+    connection = conn;
+} );
+
+
 var _ = require( 'lodash' );
 var fileUpload = require( 'express-fileupload' );
 var bodyParser = require( 'body-parser' );
@@ -20,12 +27,18 @@ router.use( methodOverride( function ( req, res ) {
 /* SERVER ROUTES */
 router.get( '/', function ( req, res ) {
     res.render( 'index', {} );
+
 } );
 
 // GET ALL USERS AND DISPLAY THEM I A LIST VIEW
 router.get( '/users', function ( req, res ) {
-    User.find( {} ).sort( { 'name.first': 1 } ).exec( function ( err, users ) {
-        res.render( 'users', { users: users } )
+    r.table( 'users' ).orderBy( { index: 'id' } ).run( connection, function ( err, cursor ) {
+        if ( err ) throw err;
+        cursor.toArray( function ( err, users ) {
+            if ( err ) throw err;
+            res.render( 'users', { users: users } )
+            //res.send( JSON.stringify( result, null, 2 ) );
+        } );
     } );
 
 } );
@@ -40,7 +53,7 @@ router.post( '/users/create', function ( req, res ) {
         return res.status( 400 ).send( 'No files were uploaded.' );
     }
 
-    
+
     var profileImage = req.files.profileimage;
     // Use the mv() method to place the file somewhere on your server
     var path = './public/images/';
@@ -63,24 +76,36 @@ router.post( '/users/create', function ( req, res ) {
             large: '/profileimages/' + profileImage.name
         }
     }
-    var user = new User( updateObject );
-    user.save();
-    res.redirect( '/users' );
+    // var user = new User( updateObject );
+    // user.save();
+    r.table( "users" ).insert( updateObject ).run( connection, function ( err, response ) {
+        if ( err ) throw err;
+        res.redirect( '/users' );
+    } )
 } );
 
 // GET SPECIFIC USER AND DISPLAY DETAILS PAGE
 router.get( '/users/:id', function ( req, res ) {
     var id = req.params.id;
-    User.findOne( { _id: id }, function ( err, user ) {
-        res.render( 'user-details', { user: user } );
+    r.table( 'users' ).filter( r.row( 'id' ).eq( id ) ).run( connection, function ( err, cursor ) {
+        if ( err ) throw err;
+        cursor.toArray( function ( err, user ) {
+            if ( err ) throw err;
+            res.render( 'user-details', { user: user[ 0 ] } );
+            //res.send( JSON.stringify( user, null, 2 ) )
+        } );
     } );
 } );
 
 // EDIT SPECIFIC USER VIEW
 router.get( '/users/:id/edit', function ( req, res ) {
     var id = req.params.id;
-    User.findOne( { _id: id }, function ( err, user ) {
-        res.render( 'user-edit', { user: user } );
+    r.table( 'users' ).filter( r.row( 'id' ).eq( id ) ).run( connection, function ( err, cursor ) {
+        if ( err ) throw err;
+        cursor.toArray( function ( err, user ) {
+            if ( err ) throw err;
+            res.render( 'user-edit', { user: user[ 0 ] } );
+        } );
     } );
 } );
 
@@ -108,17 +133,21 @@ router.put( '/users/:id/edit', function ( req, res ) {
         updateObject.picture = {};
         updateObject.picture.large = '/profileimages/' + profileImage.name;
     }
-    
-    User.findOneAndUpdate( { _id: id }, updateObject, function ( err, user ) {
+    r.table( "users" ).filter( r.row( 'id' ).eq( id ) ).update( updateObject ).run( connection, function ( err, result ) {
+        if ( err ) throw err;
         res.redirect( '/users/' + id );
     } );
 } );
 
 router.delete( '/users/:id/remove', function ( req, res ) {
     var id = req.params.id;
-    User.deleteOne( { _id: id }, function ( error, writeOpResult ) {
+    r.table( "users" ).get( id ).delete().run( connection, function ( err, result ) {
+        if ( err ) throw err;
         res.redirect( '/users' );
     } );
+    // User.deleteOne( { _id: id }, function ( error, writeOpResult ) {
+    //     res.redirect( '/users' );
+    // } );
 } );
 
 router.get( '/raw/:id', function ( req, res ) {
