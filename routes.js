@@ -25,6 +25,7 @@ router.use( methodOverride( function ( req, res ) {
 } ) )
 
 /* SERVER ROUTES */
+
 router.get( '/', function ( req, res ) {
     res.render( 'index', {} );
 
@@ -32,7 +33,7 @@ router.get( '/', function ( req, res ) {
 
 // GET ALL USERS AND DISPLAY THEM I A LIST VIEW
 router.get( '/users', function ( req, res ) {
-    r.table( 'users' ).orderBy( { index: 'id' } ).run( connection, function ( err, cursor ) {
+    r.table( 'users' ).orderBy( r.row( 'name' )( 'first' ) ).run( connection, function ( err, cursor ) {
         if ( err ) throw err;
         cursor.toArray( function ( err, users ) {
             if ( err ) throw err;
@@ -92,7 +93,6 @@ router.get( '/users/:id', function ( req, res ) {
         cursor.toArray( function ( err, user ) {
             if ( err ) throw err;
             res.render( 'user-details', { user: user[ 0 ] } );
-            //res.send( JSON.stringify( user, null, 2 ) )
         } );
     } );
 } );
@@ -145,15 +145,16 @@ router.delete( '/users/:id/remove', function ( req, res ) {
         if ( err ) throw err;
         res.redirect( '/users' );
     } );
-    // User.deleteOne( { _id: id }, function ( error, writeOpResult ) {
-    //     res.redirect( '/users' );
-    // } );
 } );
 
 router.get( '/raw/:id', function ( req, res ) {
     var id = req.params.id;
-    User.findOne( { _id: id }, function ( err, user ) {
-        res.send( user );
+    r.table( 'users' ).filter( r.row( 'id' ).eq( id ) ).run( connection, function ( err, cursor ) {
+        if ( err ) throw err;
+        cursor.toArray( function ( err, user ) {
+            if ( err ) throw err;
+            res.send( JSON.stringify( user, null, 2 ) );
+        } );
     } );
 } );
 
